@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Una carrera para ti 🏁</title>
+<title>Una carrera para ti 🏁❤️</title>
 <meta name="theme-color" content="#14161f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,9 +84,9 @@ canvas{position:fixed;inset:0;pointer-events:none;z-index:9}
 
 <!-- 1. Inicio -->
 <section id="inicio" class="screen on">
-  <h1>Tienes una carrera pendiente</h1>
-  <p>Prepare algo con mucho motor. Solo para ti.</p>
-  <button class="btn" id="arrancar">Arrancar motor</button>
+  <h1>Tenemos un destino pendiente</h1>
+  <p>Prepare algo especial con todo mi corazón. Solo para ti.</p>
+  <button class="btn" id="arrancar">Acelerar juntos</button>
 </section>
 
 <!-- 2. Semáforo -->
@@ -171,20 +171,17 @@ canvas{position:fixed;inset:0;pointer-events:none;z-index:9}
 /* ============ PERSONALIZA AQUÍ ============ */
 const CFG = {
   el: "Jock",                 // su nombre
-  yo: "Eli",              // tu nombre (o déjalo vacío "")
-  titulo: "Feliz 30 de Septiembre",
-  // Fotos de los carritos (hasta 7). Sube las imágenes a una carpeta "img" junto a index.html.
-  // Ejemplo: fotos: ["img/carro1.png", "img/carro2.png", "img/carro3.png"]
+  yo: "Eli",                  // tu nombre
+  titulo: "Feliz 30 de Septiembre, mi amor ❤️",
   fotos: ["img/carro2.png", "img/carro4.png", "img/carro3.png", "img/carro7.png", "img/carro6.png", "img/carro5.png", "img/carro1.png"],
-  // false = la foto va dentro de la tarjeta dibujada; true = la foto reemplaza toda la tarjeta
   fotoCompleta: false,
-  mensaje: "Hoy es el día de los Hot Wheels y no podía dejar pasar la excusa. " +
-           "Me caes muy bien y quería hacerte sonreír un rato. " +
-           "Así que preparé esta pista solo para ti.",
-  pregunta: "¿Aceptas correr una carrera conmigo?",
-  textoSi: "¡Acepto!",
+  mensaje: "Hoy es el día de los Hot Wheels y no quería dejar pasar esta linda excusa para recordarte lo especial que eres para mí.\n\n" +
+           "A tu lado cada momento es una aventura maravillosa y quería sacarte una gran sonrisa hoy.\n\n" +
+           "Aceleremos juntos en este camino...",
+  pregunta: "¿Aceptas ser mi compañero de ruta para siempre? ❤️",
+  textoSi: "¡SIII, mil veces sí!",
   textoNo: "No",
-  final: "¡Ya somos dos en la pista! 🏁 Y este ramo de carritos es todo tuyo.",
+  final: "¡Nuestros corazones van a toda velocidad! 🏁 Eres mi lugar favorito y este ramo es solo para ti. ❤️",
   reto: "¡Ya me anoté! Me toca elegir el carro. 😎"
 };
 /* =========================================== */
@@ -195,8 +192,8 @@ const pantalla = id => {
   $(id).classList.add("on");
 };
 
-$("titulo").innerHTML = `Feliz día de los Hot Wheels, <span>${CFG.el}</span>`;
-$("mensaje").textContent = CFG.mensaje + (CFG.yo ? "\n\n— " + CFG.yo : "");
+$("titulo").innerHTML = `Para mi piloto favorito, <span>${CFG.el}</span> ❤️`;
+$("mensaje").textContent = CFG.mensaje + (CFG.yo ? "\n\nCon todo mi amor,\n— " + CFG.yo : "");
 $("mensaje").style.whiteSpace = "pre-line";
 $("pregunta").textContent = CFG.pregunta;
 $("si").textContent = CFG.textoSi;
@@ -233,7 +230,7 @@ $("arrancar").onclick = () => {
     } else {
       clearInterval(paso);
       luces.forEach(l => { l.classList.remove("roja"); l.classList.add("verde"); });
-      txt.textContent = "¡YA!";
+      txt.textContent = "¡AMOR!";
       motor();
       setTimeout(() => { pantalla("carta"); }, 900);
     }
@@ -250,8 +247,8 @@ function huir() {
   const m = 20, w = no.offsetWidth, h = no.offsetHeight;
   no.style.left = m + Math.random() * (innerWidth - w - 2 * m) + "px";
   no.style.top = m + Math.random() * (innerHeight - h - 2 * m - 130) + "px";
-  if (intentos > 3) no.textContent = "¿Seguro?";
-  if (intentos > 5) no.textContent = "Ni modo";
+  if (intentos > 3) no.textContent = "¿Seguro/a?";
+  if (intentos > 5) no.textContent = "¡No puedes huir!";
 }
 no.addEventListener("mouseenter", huir);
 no.addEventListener("touchstart", e => { e.preventDefault(); huir(); }, { passive: false });
@@ -279,7 +276,7 @@ function mostrarRamo() {
   }
   ponerFotos();
   pantalla("ramoPantalla");
-  lanzarConfeti(["#2f7bff", "#8fdcff", "#18b4ff", "#eef8ff"]);
+  lanzarConfeti(["#ff2d55", "#8fdcff", "#18b4ff", "#fff7ea"]);
 }
 
 /* Fotos en las tarjetas */
@@ -314,7 +311,7 @@ function ponerFotos() {
 function lanzarConfeti(cols) {
   const c = $("confeti"), x = c.getContext("2d");
   c.width = innerWidth; c.height = innerHeight;
-  cols = cols || ["#ff5a00", "#ffc400", "#0a4dff", "#fff7ea"];
+  cols = cols || ["#ff2d55", "#ffc400", "#0a4dff", "#fff7ea"];
   const ps = Array.from({ length: 160 }, () => ({
     x: innerWidth / 2, y: innerHeight * .6,
     vx: (Math.random() - .5) * 16, vy: -Math.random() * 16 - 4,
